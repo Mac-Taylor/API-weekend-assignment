@@ -9,16 +9,22 @@
 
 <body ng-app="GitHubActivity">
 
-    <h1>GitHub Activity!</h1>
+    <header>GitHub Activity!</header>
 
-    <section>
-        
-        
-
+    <h1>Username Info</h1>
+    <section ng-controller="UsernameController">
+        <input type="text" ng-model="username"></input>
+        <button ng-click="addUser()">Add User!</button>
     </section>
 
-    <section>
-
+    <h2>User Activity</h2>
+    <section ng-controller="UserActivityController">
+        <ul>
+            <li ng-repeat="something in ppl">
+                <p>{{ something.name }}</p>
+                <p>{{ something.repositories }} repositories on GitHub</p>
+            </li>
+        </ul>
     </section>
 
 </body>
