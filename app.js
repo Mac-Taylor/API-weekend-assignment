@@ -44,6 +44,7 @@ app.factory('AppService', function ($http) {
                         // trying to fill in the DOM you need data stored somewhere, ideally in one place rather than
                 name: username,
                 repositories: null,
+                photo: null,
             }
 
             ppl.push(usr);
@@ -51,6 +52,8 @@ app.factory('AppService', function ($http) {
             $http.get('https://api.github.com/users/' + username).then(function (response) {
                 console.log(response.data);
                 usr.repositories = response.data.public_repos;
+                usr.photo = response.data.avatar_url; // I need this to load during the click event to avoid annoying error message
+                
                 // // ppl.push({
                 //     name: username,
                 //     repositories: response.data.public_repos,

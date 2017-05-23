@@ -21,6 +21,7 @@
     <section ng-controller="UserActivityController">
         <ul>
             <li ng-repeat="something in ppl">
+                <img src="{{ something.photo }}">
                 <p>{{ something.name }}</p>
                 <p>{{ something.repositories }} repositories on GitHub</p>
             </li>
